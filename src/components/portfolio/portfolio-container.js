@@ -5,24 +5,29 @@ import PortfolioItem from './portfolio-item'
 export default class PortfolioContainer extends Component {
     constructor() { // great for performing basic set up -- don't forget to super from the Component class
         super()
-        console.log("Portfolio container has rendered")
+        
+        this.state = {
+            pageTitle: "Welcome to my portfolio", // we can now access the class state's pageTitle
+            data: [
+                {title: "A"},
+                {title: "B"},
+                {title: "C"}
+            ] // each column value
+        }
     }
 
     portfolioItems() {
-        const data =  ["A", "B", "C"] // each column value
-        
-        return data.map(i => {
-            return <PortfolioItem/>
+              
+        return this.state.data.map(item => {
+            return <PortfolioItem title={item.title} />
         })
     }
 
     // state and life cycle hooks need class based component
     render() { // always need render for class based component
         return (
-            // JSX looks a lot like html but it isn't~
             <div>
-                <h2>Portfolio items go here...</h2>
-
+                <h2>{this.state.pageTitle}</h2>
                 {this.portfolioItems()}
             </div>
         )
