@@ -3,6 +3,19 @@ import React, { Component } from "react";
 import PortfolioItem from './portfolio-item'
 
 export default class PortfolioContainer extends Component {
+    constructor() { // great for performing basic set up -- don't forget to super from the Component class
+        super()
+        console.log("Portfolio container has rendered")
+    }
+
+    portfolioItems() {
+        const data =  ["A", "B", "C"] // each column value
+        
+        return data.map(i => {
+            return <PortfolioItem/>
+        })
+    }
+
     // state and life cycle hooks need class based component
     render() { // always need render for class based component
         return (
@@ -10,7 +23,7 @@ export default class PortfolioContainer extends Component {
             <div>
                 <h2>Portfolio items go here...</h2>
 
-                <PortfolioItem/>
+                {this.portfolioItems()}
             </div>
         )
     }
