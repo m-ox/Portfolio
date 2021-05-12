@@ -7,10 +7,12 @@ export default class PortfolioContainer extends Component {
         super()
 
         this.mockData = [
-            {title: "Ministry", category: "popular"},
-            {title: "KMFDM", category: "edgy"},
-            {title: "Skinny Puppy", category: "edgy"},
-            {title: "Nine Inch Nails", category: "popular"}
+            {title: "Color Flipper", category: "code"},
+            {title: "Tentacles", category: "art"},
+            {title: "Diner Menu", category: "code"},
+            {title: "Angler Fish", category: "art"},
+            {title: "Spirits of the Forest", category: "art"},
+            {title: "Moth Hands", category: "art"}
         ]
         
         this.state = {
@@ -25,7 +27,7 @@ export default class PortfolioContainer extends Component {
     portfolioItems() {
         
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={"https://www.bing.com/search?q=industrial+music"} />
+            return <PortfolioItem title={item.title} url={"https://www.bing.com"} />
         })
     }
 
@@ -61,8 +63,8 @@ export default class PortfolioContainer extends Component {
             <div>
                 <h2>{this.state.pageTitle}</h2>
 
-                <button onClick={ () => this.handleFilter('edgy')}>edgy</button>
-                <button onClick={ () => this.handleFilter('popular')}>popular</button>
+                <button onClick={ () => this.handleFilter('code')}>code</button>
+                <button onClick={ () => this.handleFilter('art')}>art</button>
                 <button onClick={ () => this.resetAll()}>reset</button>
 
                 {this.portfolioItems()}
