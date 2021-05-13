@@ -18,6 +18,11 @@ import PortfolioDetail from "./portfolio/portfolio-detail"
 import NoMatch from "./pages/no-match"
 
 export default class App extends Component {
+
+  constructor() {
+    super()
+  }
+
   render() {
     return (
       <div className='app'>

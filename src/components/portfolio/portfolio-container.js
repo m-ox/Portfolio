@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Axios from 'axios'
 
 import PortfolioItem from './portfolio-item'
 
@@ -22,7 +23,21 @@ export default class PortfolioContainer extends Component {
         }
 
         this.handleFilter = this.handleFilter.bind(this)
+        this.getPortfolioItems = this.getPortfolioItems.bind(this)
     }
+
+    getPortfolioItems() {
+        Axios
+          .get('https://mox.devcamp.space/portfolio/portfolio_items')
+          .then( response => {
+            // handle success
+            console.log("Response success!", response);
+          })
+          .catch(error => {
+            // handle error
+            console.log("Response error!", error);
+          })
+      }
 
     portfolioItems() {
         
@@ -58,6 +73,8 @@ export default class PortfolioContainer extends Component {
         if (this.state.isLoading) {
             return <div>Loading...</div>
         }
+
+        this.getPortfolioItems()
         
         return (
             <div>
