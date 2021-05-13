@@ -6,20 +6,11 @@ import PortfolioItem from './portfolio-item'
 export default class PortfolioContainer extends Component {
     constructor() { // great for performing basic set up -- don't forget to super from the Component class
         super()
-
-        this.mockData = [
-            {title: "Color Flipper", category: "code", slug: "colorflip"},
-            {title: "Tentacles", category: "art", slug: "tentacles"},
-            {title: "Diner Menu", category: "code", slug: "diner"},
-            {title: "Angler Fish", category: "art", slug: "angler"},
-            {title: "Spirits of the Forest", category: "art", slug: "spirits"},
-            {title: "Moth Hands", category: "art", slug: "mothhands"}
-        ]
         
         this.state = {
             pageTitle: "Welcome to my portfolio", // we can now access the class state's pageTitle
             isLoading: false,
-            data: this.mockData // each column value
+            data: []
         }
 
         this.handleFilter = this.handleFilter.bind(this)
@@ -32,6 +23,9 @@ export default class PortfolioContainer extends Component {
           .then( response => {
             // handle success
             console.log("Response success!", response);
+            this.setState({
+                data: response.data.portfolio_items
+            })
           })
           .catch(error => {
             // handle error
@@ -40,19 +34,10 @@ export default class PortfolioContainer extends Component {
       }
 
     portfolioItems() {
-        
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={"https://www.bing.com"} slug={item.slug} />
+            return <PortfolioItem title={item.name} url={"item.url"} slug={item.id} />
         })
     }
-
-    //handleFilter(filter) {
-    //    this.setState({
-    //        data: this.state.data.filter(item => {
-    //            return item.category === filter;
-    //        })
-    //    })
-    //}
 
     handleFilter(filter) {
         this.setState({
@@ -68,13 +53,17 @@ export default class PortfolioContainer extends Component {
         })
     }
 
+    componentDidMount() {
+        this.getPortfolioItems()
+    }
+
     // state and life cycle hooks need class based component
     render() { // always need render for class based component
         if (this.state.isLoading) {
             return <div>Loading...</div>
         }
 
-        this.getPortfolioItems()
+        // this.getPortfolioItems()
         
         return (
             <div>
