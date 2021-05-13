@@ -7,12 +7,12 @@ export default class PortfolioContainer extends Component {
         super()
 
         this.mockData = [
-            {title: "Color Flipper", category: "code"},
-            {title: "Tentacles", category: "art"},
-            {title: "Diner Menu", category: "code"},
-            {title: "Angler Fish", category: "art"},
-            {title: "Spirits of the Forest", category: "art"},
-            {title: "Moth Hands", category: "art"}
+            {title: "Color Flipper", category: "code", slug: "colorflip"},
+            {title: "Tentacles", category: "art", slug: "tentacles"},
+            {title: "Diner Menu", category: "code", slug: "diner"},
+            {title: "Angler Fish", category: "art", slug: "angler"},
+            {title: "Spirits of the Forest", category: "art", slug: "spirits"},
+            {title: "Moth Hands", category: "art", slug: "mothhands"}
         ]
         
         this.state = {
@@ -27,7 +27,7 @@ export default class PortfolioContainer extends Component {
     portfolioItems() {
         
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={"https://www.bing.com"} />
+            return <PortfolioItem title={item.title} url={"https://www.bing.com"} slug={item.slug} />
         })
     }
 
