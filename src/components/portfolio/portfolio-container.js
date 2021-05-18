@@ -4,11 +4,11 @@ import Axios from 'axios'
 import PortfolioItem from './portfolio-item'
 
 export default class PortfolioContainer extends Component {
-    constructor() { // great for performing basic set up -- don't forget to super from the Component class
+    constructor() {
         super()
         
         this.state = {
-            pageTitle: "Welcome to my portfolio", // we can now access the class state's pageTitle
+            pageTitle: "Welcome to my portfolio",
             isLoading: false,
             data: []
         }
@@ -34,8 +34,14 @@ export default class PortfolioContainer extends Component {
       }
 
     portfolioItems() {
+        
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.name} url={"item.url"} slug={item.id} />
+            console.log("Portfolio Item", item)
+            return (
+                <PortfolioItem
+                key={item.id}
+                item={item} />
+            )
         })
     }
 
@@ -57,8 +63,8 @@ export default class PortfolioContainer extends Component {
         this.getPortfolioItems()
     }
 
-    // state and life cycle hooks need class based component
-    render() { // always need render for class based component
+
+    render() {
         if (this.state.isLoading) {
             return <div>Loading...</div>
         }
@@ -69,22 +75,15 @@ export default class PortfolioContainer extends Component {
             <div>
                 <h2>{this.state.pageTitle}</h2>
 
-                <button onClick={ () => this.handleFilter('code')}>code</button>
-                <button onClick={ () => this.handleFilter('art')}>art</button>
-                <button onClick={ () => this.resetAll()}>reset</button>
+                <button onClick={ () => this.handleFilter('python')}>python</button>
+                <button onClick={ () => this.handleFilter('js')}>js</button>
+                <button onClick={ () => this.handleFilter('css')}>css</button>
 
-                {this.portfolioItems()}
+                <div className="portfolio-items-wrapper">
+                    {this.portfolioItems()}
+                </div>
 
             </div>
         )
     }
 }
-
-// functional and presentation components are the same thing
-
-// dynamic data that can be updated probably would like a class based component, like for forms
-// for just simply rendering content, functional components work just fine
-// portfolio item will just render items as a functional component
-// portfolio-container will be dynamic
-
-// the difference is managing state and having access to life cycle methods
