@@ -1,0 +1,18 @@
+.auth-page-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: calc(100vh - 84px);
+    width: 100%;
+
+    .left-column {
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .right-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $off-white;
+    }
+}

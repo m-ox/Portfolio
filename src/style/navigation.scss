@@ -2,8 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    font-size: 2em;
+    padding: 30px;
     background: $off-white;
   
     .left-side {
@@ -18,7 +17,7 @@
       transition: .5s ease-in-out;
       margin-right: 20px;
       text-transform: uppercase;
-      font-size: 0.9rem;
+      font-size: 1.2em;
       margin-bottom: -5px;
   
       a {

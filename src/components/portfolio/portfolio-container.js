@@ -19,7 +19,7 @@ export default class PortfolioContainer extends Component {
 
     getPortfolioItems() {
         Axios
-          .get('https://mox.devcamp.space/portfolio/portfolio_items')
+          .get("https://jordan.devcamp.space/portfolio/portfolio_items") // please do not actually keep this, our endpoint sucked
           .then( response => {
             // handle success
             console.log("Response success!", response);
@@ -36,7 +36,6 @@ export default class PortfolioContainer extends Component {
     portfolioItems() {
         
         return this.state.data.map(item => {
-            console.log("Portfolio Item", item)
             return (
                 <PortfolioItem
                 key={item.id}
@@ -53,12 +52,6 @@ export default class PortfolioContainer extends Component {
         })
     }
 
-    resetAll = () => {
-        this.setState({
-            data: this.mockData
-        })
-    }
-
     componentDidMount() {
         this.getPortfolioItems()
     }
@@ -66,24 +59,20 @@ export default class PortfolioContainer extends Component {
 
     render() {
         if (this.state.isLoading) {
-            return <div>Loading...</div>
+            return <div className="loading">Loading...</div>
         }
 
         // this.getPortfolioItems()
         
         return (
-            <div>
-                <h2>{this.state.pageTitle}</h2>
-
-                <button onClick={ () => this.handleFilter('python')}>python</button>
-                <button onClick={ () => this.handleFilter('js')}>js</button>
-                <button onClick={ () => this.handleFilter('css')}>css</button>
-
                 <div className="portfolio-items-wrapper">
+
+                    <button className="btn" onClick={ () => this.handleFilter('python')}>python</button>
+                    <button className="btn" onClick={ () => this.handleFilter('js')}>js</button>
+                    <button className="btn" onClick={ () => this.handleFilter('css')}>css</button>
+                    
                     {this.portfolioItems()}
                 </div>
-
-            </div>
         )
     }
 }
