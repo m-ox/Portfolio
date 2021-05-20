@@ -19,7 +19,7 @@ export default class PortfolioContainer extends Component {
 
     getPortfolioItems() {
         Axios
-          .get("https://jordan.devcamp.space/portfolio/portfolio_items") // please do not actually keep this, our endpoint sucked
+          .get("https://mox.devcamp.space/portfolio/portfolio_items") // please do not actually keep this, our endpoint sucked
           .then( response => {
             // handle success
             console.log("Response success!", response);
