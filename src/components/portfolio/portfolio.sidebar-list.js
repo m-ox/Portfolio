@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const PortfolioSidebarList = (props) => {
 
     const portfolioList = props.data.map(portfolioItem => {
-        // console.log(portfolioItem)
         return (
             <div key={portfolioItem.id} className="portfolio-item-thumb">
                 <div className="portfolio-thumb-img">
@@ -12,6 +13,9 @@ const PortfolioSidebarList = (props) => {
                 <div>
                     <h1 className="title">{portfolioItem.name}</h1>
                     <h4>{portfolioItem.description}</h4>
+                    <a onClick={() => props.handleDeleteClick(portfolioItem)}>
+                        <FontAwesomeIcon icon="trash" />
+                    </a>
                 </div>
             </div>
         )

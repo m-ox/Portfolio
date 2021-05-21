@@ -1,0 +1,36 @@
+.one-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    text-align-last: center;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px 5px;
+    gap: 10px;
+    justify-content: center;
+    place-items: center;
+    text-align-last: center;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10px 0;
+    place-items: center;
+    text-align-last: center;
+    & > * {
+        width: 90%;
+    }
+}
+
+.dz-message {
+    font-size: 1.2em;
+    font-family: 'Oxygen', sans-serif;
+}
+
+div.filepicker {
+    background: transparent;
+}
