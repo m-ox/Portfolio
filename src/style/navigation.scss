@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
     background: $off-white;
   
     .left-side {
@@ -41,10 +41,20 @@
     }
 
     .right-side {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         transition: 1s;
+        text-transform: uppercase;
         &:hover {
             letter-spacing: .5px;
+        }
+        .signout {
+          padding: 0 10px;
+          transition: .2s;
+
+          &:hover {
+            cursor: pointer;
+            color: $teal;
+          }
         }
     }
   }

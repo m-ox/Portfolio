@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr;
     padding: 20px;
+    position: static;
 
     input {
         font-family: 'Oxygen', sans-serif;
@@ -42,6 +43,29 @@
             font-family: 'KoHo', sans-serif;
             text-transform: uppercase;
             background: #98ced6;
+        }
+    }
+}
+
+.portfolio-manager-image-wrapper {
+    img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
+
+.image-removal-link {
+    a {
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 700;
+        color: $off-white;
+        cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            color: $teal;
         }
     }
 }
