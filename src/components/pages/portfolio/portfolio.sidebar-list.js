@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaTrashAlt, FaEdit } from 'react-icons/fa'
 
 const PortfolioSidebarList = (props) => {
 
@@ -19,11 +17,11 @@ const PortfolioSidebarList = (props) => {
 
                     <div className="actions">
                         <a className="editIcon" onClick={() => props.handleEditClick(portfolioItem)}>
-                            <FontAwesomeIcon icon="edit" />
+                            <FaEdit />
                         </a>
 
                         <a className="deleteIcon" onClick={() => props.handleDeleteClick(portfolioItem)}>
-                            <FontAwesomeIcon icon="trash" />
+                            <FaTrashAlt />
                         </a>
                     </div>
                     

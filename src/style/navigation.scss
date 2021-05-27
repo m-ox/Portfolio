@@ -50,15 +50,18 @@
         }
 
         &:hover {
-            letter-spacing: .5px;
+            letter-spacing: .2px;
+            color: $charcoal;
         }
         .signout {
           padding: 0 10px;
           transition: .2s;
+          font-size: 1.2em;
+          vertical-align: sub;
 
           &:hover {
             cursor: pointer;
-            color: $teal;
+            color: $dark-teal;
           }
         }
     }

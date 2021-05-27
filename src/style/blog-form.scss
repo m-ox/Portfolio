@@ -1,0 +1,42 @@
+.blog-form-wrapper {
+    padding: 20px;
+    height: -webkit-fill-available;
+
+    .blog-form-columns {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 40px;
+
+        .blog-input {
+            width: 100%;
+            border: unset;
+            border-bottom: 2px solid $dark-teal;
+            border-radius: 3px;
+            font-size: 1.3em;
+            color: $teal;
+
+            &:focus {
+                outline: none;
+            } 
+            
+            ::placeholder {
+                padding: 0px 0px 10px 5px;
+                font-size: 1.2em;
+                color: $teal;
+            }
+        }
+    }
+
+    button {
+        padding: 5px 10px;
+        background: $teal;
+        border-radius: 15px;
+        color: $off-white;
+        border: unset;
+        margin: 20px 10px;
+
+        &:hover {
+            background: $dark-teal;
+        }
+    }
+}

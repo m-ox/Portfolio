@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import ReactHtmlParser from "react-html-parser"
 
 const BlogItem = props => {
     const {
@@ -18,7 +19,7 @@ const BlogItem = props => {
                 </h1>
             </Link>
             <div>
-                {content}
+                {ReactHtmlParser(content)}
             </div>
         </div>
     )

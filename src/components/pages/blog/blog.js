@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import axios from 'axios'
-import { FaStar } from 'react-icons/fa'
+import { FaStar, FaPlusCircle } from 'react-icons/fa'
 
 import BlogItem from './blog-item'
 import BlogModal from '../../modals/blog-modal'
@@ -95,11 +95,12 @@ class Blog extends Component {
         return (
             <div className="blog-container">
 
-                <div className="new-blog-link">
-                    <a onClick={this.handleNewBlogClick}>
-                        <FaStar className="image" />
-                    </a>
-                </div>
+                {this.props.loggedInStatus === "LOGGED_IN" ?
+                    <div className="new-blog-link">
+                        <a onClick={this.handleNewBlogClick}>
+                            <FaPlusCircle className="image" />
+                        </a>
+                    </div> : null }
     
                 <BlogModal
                     modalIsOpen={this.state.blogModalIsOpen}
@@ -109,7 +110,6 @@ class Blog extends Component {
 
                 <div className="content-container">
                     {blogRecords}
-                    
                 </div>
 
                 {this.state.isLoading ? (

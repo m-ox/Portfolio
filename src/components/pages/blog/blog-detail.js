@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import Axios from 'axios'
 import axios from 'axios'
+import ReactHtmlParser from "react-html-parser"
+
+import FeaturedImage from './blog-featured-image'
 
 export default class BlogDetail extends Component {
     constructor(props) {
@@ -10,8 +12,6 @@ export default class BlogDetail extends Component {
             blogId: this.props.match.params.slug,
             blogItem: {}
         }
-
-        console.log('blogId slug:', this.state.blogId)
     }
 
     getBlogItem() {
@@ -46,12 +46,10 @@ export default class BlogDetail extends Component {
                 <div className='content-container'>
                     {<h1> {title} </h1>}
 
-                    <div className="featured-image-wrapper">
-                        <img src={featured_image_url} />
-                    </div>
+                    <FeaturedImage img={featured_image_url} />
 
                     <div className="content">
-                        <div> {content} </div>
+                        <div> {ReactHtmlParser(content)} </div>
                     </div>
                 </div>
             </div>
