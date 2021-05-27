@@ -36,7 +36,7 @@
       .nav-link-active {
         font-weight: 900;
         border-radius: 35px;
-        color: $blue;
+        color: $dark-accent;
       }
     }
 
@@ -44,6 +44,11 @@
         font-size: 1.7rem;
         transition: 1s;
         text-transform: uppercase;
+
+        svg {
+          color: $blue;
+        }
+
         &:hover {
             letter-spacing: .5px;
         }

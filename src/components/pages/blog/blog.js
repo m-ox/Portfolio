@@ -4,6 +4,7 @@ import axios from 'axios'
 import { FaStar } from 'react-icons/fa'
 
 import BlogItem from './blog-item'
+import BlogModal from '../../modals/blog-modal'
 
 class Blog extends Component {
     constructor() {
@@ -13,20 +14,42 @@ class Blog extends Component {
             blogItems: [],
             totalCount: 0,
             currentPage: 0,
-            isLoading: true
+            isLoading: true,
+            blogModalIsOpen: false
         }
 
         this.getBlogItems = this.getBlogItems.bind(this)
-        this.activateInfiniteScroll()
+        this.onScroll = this.onScroll.bind(this)
+        window.addEventListener('scroll', this.onScroll, false)
+        this.handleNewBlogClick = this.handleNewBlogClick.bind(this)
+        this.handleModalClose = this.handleModalClose.bind(this)
+        this.handleSuccessfulNewBlogPost = this.handleSuccessfulNewBlogPost.bind(this)
     }
 
-    activateInfiniteScroll() {
-        window.onscroll = () => {
+    handleSuccessfulNewBlogPost(blog) {
+        this.setState({
+            blogModalIsOpen: false,
+            blogItems: [blog].concat(this.state.blogItems)
+          })
+        }
 
-            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+    handleModalClose() {
+        this.setState({
+          blogModalIsOpen: false
+        })
+      }
+
+    handleNewBlogClick() {
+        this.setState({
+            blogModalIsOpen: true
+        })
+    }
+
+    onScroll() {
+        if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+                console.log('scroll bump')
                 this.getBlogItems()
             }
-        }
     }
 
     getBlogItems() {
@@ -42,7 +65,6 @@ class Blog extends Component {
             .then( response => {
 
                 if (response.data.portfolio_blogs.length > 0) {
-                    console.log("getting", response.data)
                     this.setState({
                         blogItems: this.state.blogItems.concat(response.data.portfolio_blogs),
                         totalCount: response.data.meta.total_records,
@@ -60,6 +82,10 @@ class Blog extends Component {
         this.getBlogItems()
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScroll, false)
+    }
+
     render() {
         const blogRecords = this.state.blogItems.map(blogItem => {
             return <BlogItem key={blogItem.id} blogItem={blogItem} />
@@ -68,7 +94,19 @@ class Blog extends Component {
         
         return (
             <div className="blog-container">
+
+                <div className="new-blog-link">
+                    <a onClick={this.handleNewBlogClick}>
+                        <FaStar className="image" />
+                    </a>
+                </div>
     
+                <BlogModal
+                    modalIsOpen={this.state.blogModalIsOpen}
+                    handleSuccessfulNewBlogPost={this.handleSuccessfulNewBlogPost}
+                    handleModalClose={this.handleModalClose}
+                    />
+
                 <div className="content-container">
                     {blogRecords}
                     

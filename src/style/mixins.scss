@@ -5,14 +5,15 @@
     font-weight: 600;
     text-transform: uppercase;
     transition: all 0.5s ease-in-out;
-    background: rgb(93, 121, 175);
-    color: white;
+    background: $teal;
+    color: $off-white;
+    border: none;
 
     &:active, &:focus {
         outline: none;
     }
 
     &:hover {
-        background: rgb(39, 53, 142);
+        background: $dark-accent;
     }
 }

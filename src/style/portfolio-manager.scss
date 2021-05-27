@@ -2,13 +2,13 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     .left-column {
-        background: $grey;
+        background: $blue;
         padding: 10px 30px;
-        color: white;
+        color: $off-white;
     }
     .right-column {
-        background: $charcoal;
-        color: white;
+        background: $dark-teal;
+        color: $off-white;
         padding: 10px 30px;
     }
 }
