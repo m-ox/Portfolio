@@ -34,6 +34,10 @@
         height: 30vh;
     }
 
+    .rdw-image-modal {
+        z-index: 2;
+    }
+
     button {
         padding: 5px 10px;
         background: $teal;
