@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom"
 import axios from 'axios'
 import { FaStar, FaPlusCircle } from 'react-icons/fa'
 
@@ -63,6 +62,7 @@ class Blog extends Component {
                 { withCredentials: true }
             )
             .then( response => {
+                console.log('receiving get response', response)
 
                 if (response.data.portfolio_blogs.length > 0) {
                     this.setState({
@@ -70,9 +70,8 @@ class Blog extends Component {
                         totalCount: response.data.meta.total_records,
                         isLoading: false
                     })
-                    }
                 }
-            )
+            })
             .catch( error => {
                 console.log("getBlogItems error", error)}
             )
@@ -106,7 +105,7 @@ class Blog extends Component {
                     modalIsOpen={this.state.blogModalIsOpen}
                     handleSuccessfulNewBlogPost={this.handleSuccessfulNewBlogPost}
                     handleModalClose={this.handleModalClose}
-                    />
+                />
 
                 <div className="content-container">
                     {blogRecords}

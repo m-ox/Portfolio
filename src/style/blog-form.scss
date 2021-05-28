@@ -27,6 +27,13 @@
         }
     }
 
+    .public-DraftEditor-content {
+        color: $teal;
+        margin-left: 20px;
+        overflow-y: scroll;
+        height: 30vh;
+    }
+
     button {
         padding: 5px 10px;
         background: $teal;
