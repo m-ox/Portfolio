@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from 'axios'
 
 import PortfolioItem from './portfolio-item'
+import { FaStar } from 'react-icons/fa'
 
 export default class PortfolioContainer extends Component {
     constructor() {
@@ -59,7 +60,11 @@ export default class PortfolioContainer extends Component {
 
     render() {
         if (this.state.isLoading) {
-            return <div className="loading">Loading...</div>
+            return (
+                <div className="loading">
+                    <FaStar className="image" />
+                </div>
+            )    
         }
 
         // this.getPortfolioItems()

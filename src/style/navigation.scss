@@ -1,5 +1,5 @@
 .nav-wrapper {
-    width: calc(100vw - 60px);
+    width: calc(100vw - 40px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,24 +44,26 @@
         font-size: 1.7rem;
         transition: 1s;
         text-transform: uppercase;
+        transition: .4s;
 
+        &:hover {
+            text-shadow: 0px 1px 2px #aa0b62fb;
+        }
+        
         svg {
           color: $blue;
         }
 
-        &:hover {
-            letter-spacing: .2px;
-            color: $charcoal;
-        }
         .signout {
           padding: 0 10px;
           transition: .2s;
           font-size: 1.2em;
           vertical-align: sub;
+          transition: .4s;
 
           &:hover {
             cursor: pointer;
-            color: $dark-teal;
+            color: #aa0b62fb;
           }
         }
     }

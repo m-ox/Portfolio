@@ -1,0 +1,70 @@
+.contact-me-content {
+    height: calc(100vh - 75px);
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5em;
+
+    .left-column {
+        width: 100%;
+
+        & * {
+            margin: 5px;
+            padding: 0;
+            color: $blue;
+            text-decoration: none;
+        }
+
+        h1 {
+            color: $dark-accent;
+            font-size: 2em;
+            margin: 15px 0;
+            transition: .4s;
+
+            &:hover {
+                text-shadow: 0px 1px 2px #aa0b62fb;
+            }
+        }
+
+        .contact-wrapper {
+            height: 80%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            .email, .phone {
+                font-weight: 700;
+                font-family: 'Oxygen', sans-serif;
+            }
+
+            .linky {
+                font-family: 'Oxygen', sans-serif;
+                letter-spacing: .5px;
+                color: $orange;
+                transition: .4s;
+
+                &:hover {
+                    text-shadow: 0px 1px 2px #aa0b62fb;
+                }
+            
+            .linky-sub {
+                font-size: .7rem;
+                text-align: center;
+            }
+            
+            }
+        }
+    }
+
+    .right-column {
+        //TODO CONTAINER QUERY THIS B
+        width: 100%;
+        height: calc(100vh - 75px);
+        background-image: url('../../static/assets/images/ocean.jpg');
+        background-size: cover;
+    }
+}

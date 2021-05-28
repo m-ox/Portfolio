@@ -1,0 +1,101 @@
+.about-me-content {
+    height: calc(100vh - 75px);
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+
+    .left-column {
+        //TODO CONTAINER QUERY THIS B
+        width: 100%;
+        height: calc(100vh - 75px);
+        background-image: url('../../static/assets/images/me.png');
+        background-size: cover;
+    }
+
+    .right-column {
+        width: 100%;
+
+        p {
+            padding: 0 100px;
+            letter-spacing: .1em;
+        }
+
+        .about-title {
+            margin: -10px 0 5px 0;
+            font-size: 3.5em;
+            color: $dark-accent;
+            transition: .4s;
+
+                &:hover {
+                    text-shadow: 0px 1px 2px #aa0b62fb;
+                }
+        }
+
+        .skills-boast {
+            display: flex;
+            place-content: center;
+
+            p {
+                font-weight: 700;
+            }
+
+            .skill-wrapper {
+                width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                transition: .4s;
+
+                &:hover {
+                    text-shadow: 0px 1px 2px #aa0b62fb;
+                }
+    
+                * {box-sizing:border-box}
+                
+                .skill-bar {
+                    width: 100%;
+                    background-color: #ddd;
+                    border-radius: 25px;
+                    transition: .4s;
+
+                    &:hover {
+                        box-shadow: 0px 0px 7px 1px #aa0b62fb;
+                    }
+    
+                    
+                  .skills {
+                    text-align: right;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    color: white;
+                  }
+                  
+                  .css {
+                      width: 40%;
+                      background-color: #eb644c;
+                      padding-right: 5px;
+                      border-radius: 25px;
+                    }
+
+                    .py {
+                        width: 30%;
+                        background-color: #eba14c;
+                        padding-right: 5px;
+                        border-radius: 25px;
+                      }
+
+                    .js {
+                      width: 30%;
+                      background-color: #4cebde;
+                      padding-right: 5px;
+                      border-radius: 25px;
+                    }
+                }
+            }
+        }
+          
+    }
+}

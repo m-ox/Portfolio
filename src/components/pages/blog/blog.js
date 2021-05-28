@@ -46,7 +46,6 @@ class Blog extends Component {
 
     onScroll() {
         if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
-                console.log('scroll bump')
                 this.getBlogItems()
             }
     }
@@ -62,7 +61,6 @@ class Blog extends Component {
                 { withCredentials: true }
             )
             .then( response => {
-                console.log('receiving get response', response)
 
                 if (response.data.portfolio_blogs.length > 0) {
                     this.setState({
@@ -89,7 +87,6 @@ class Blog extends Component {
         const blogRecords = this.state.blogItems.map(blogItem => {
             return <BlogItem key={blogItem.id} blogItem={blogItem} />
         })
-
         
         return (
             <div className="blog-container">
