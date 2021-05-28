@@ -29,18 +29,23 @@ h1, h2, h3, h4, h5, h6 {
     width: 11px;
     height: 11px;
    }
-   ::-webkit-scrollbar-thumb {
+
+::-webkit-scrollbar-thumb {
     cursor: pointer, auto;
     background: linear-gradient(84deg, #d6668d 29%,#7390d4 98%);
     border-radius: 4px;
     box-shadow: inset 1px 0px 16px #e8e8e8;
-   }
-   ::-webkit-scrollbar-thumb:hover{
+}
+::-webkit-scrollbar-thumb:hover{
     background: linear-gradient(75deg, #d6668d 31%,#7390d4 100%);
     cursor: pointer;
-   }
-   ::-webkit-scrollbar-track{
+}
+::-webkit-scrollbar-track{
     background: #fae1e1;
     border-radius: 5px;
     box-shadow: inset 7px 10px 12px #f0f0f0;
-   }
+}
+
+div.filepicker {
+    background: #e1e1e15c;
+}

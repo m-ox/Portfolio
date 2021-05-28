@@ -261,7 +261,7 @@ export default class PortfolioForm extends Component {
                         </DropzoneComponent>
                         )}
 
-                    {this.state.banner_image_url && this.state.editMode ? 
+                    {this.state.banner_image_url && this.state.editMode ? (
 
                         <div className="portfolio-manager-image-wrapper">
                             <img src={this.state.banner_image_url} />
@@ -269,9 +269,9 @@ export default class PortfolioForm extends Component {
                             <div className="image-removal-link">
                                 <a onClick={() => this.deleteImage("banner_image")}>Remove</a>
                             </div>
-                        </div>
+                        </div>)
 
-                        :(
+                        : (
                         <DropzoneComponent
                             ref={this.bannerRef}
                             config={this.componentConfig()}
