@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class About extends Component {
     render() {
         return (
-            <div className="about-me-content">
+            <div className="about-me-content spacer75">
                 <div className="left-column">
                     <div className="about-image">
                     </div>

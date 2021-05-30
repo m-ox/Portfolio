@@ -13,7 +13,10 @@ export default class Home extends Component {
 
     render() {
         return (
-            <PortfolioContainer />
+            <div className="spacer75">
+                <PortfolioContainer />
+            </div>
+            
         )
     }
 }

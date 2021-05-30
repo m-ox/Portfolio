@@ -89,7 +89,7 @@ class Blog extends Component {
         })
         
         return (
-            <div className="blog-container">
+            <div className="blog-container spacer75">
 
                 {this.props.loggedInStatus === "LOGGED_IN" ?
                     <div className="new-blog-link">

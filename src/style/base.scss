@@ -1,8 +1,24 @@
 html {
     padding: 0;
     margin: 0;
-    background: $off-white;
+    background: $warning;
     color: $dark-accent;
+    background: linear-gradient(249deg, #f5d5ee, #d7f6fc);
+    background-size: 400% 400%;
+
+    -webkit-animation: wave 15s ease infinite;
+    animation: wave 15s ease infinite;
+}
+
+@-webkit-keyframes wave {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 69%}
+    100%{background-position:0% 32%}
+}
+@keyframes wave {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 69%}
+    100%{background-position:0% 32%}
 }
 
 body {
@@ -23,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
 .spacer10 {
     padding-top: 10px;
     padding-left: 10px;
+}
+
+.spacer75 {
+    padding-top: 75px;
 }
 
 ::-webkit-scrollbar {

@@ -1,14 +1,22 @@
 .portfolio-manager-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: inline-block;
+    
     .left-column {
         background: $blue;
         padding: 10px 30px;
         color: $off-white;
+        background: #565597;
+        padding: 10px 30px;
+        color: #f3f0ee;
+        position: fixed;
+        height: calc(100vh - 75px);
+        width: 66.66%;
     }
     .right-column {
         background: $dark-teal;
         color: $off-white;
         padding: 10px 30px;
+        float: right;
+        width: 25%;
     }
 }

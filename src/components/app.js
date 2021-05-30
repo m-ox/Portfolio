@@ -108,7 +108,6 @@ export default class App extends Component {
 
               <Route path='/blog'
                 render={props => ( <Blog {...props} loggedInStatus={this.state.loggedInStatus} /> )}
-              
                />
 
               <Route
@@ -121,11 +120,15 @@ export default class App extends Component {
 
               {this.state.loggedInStatus === "LOGGED_IN" ? this.authorizedPages() : null}
 
+              {this.state.loggedInStatus === "LOGGED_IN"
+                ? this.authorizedPages()
+                : null}
               <Route
                 exact
                 path="/portfolio/:slug"
                 component={PortfolioDetail}
               />
+              
               <Route component={NoMatch} />
             </Switch>
         </Router>

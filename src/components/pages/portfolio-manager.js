@@ -82,7 +82,7 @@ export default class PortfolioManager extends Component {
 
     render() {
         return (
-            <div className="portfolio-manager-wrapper">
+            <div className="portfolio-manager-wrapper spacer75">
                 <div className="left-column">
                     <PortfolioForm
                         handleNewFormSubmission={this.handleNewFormSubmission}
@@ -92,6 +92,7 @@ export default class PortfolioManager extends Component {
                         portfolioToEdit={this.state.portfolioToEdit}
                     />
                 </div>
+                
                 <div className="right-column">
                     <PortfolioSidebarList
                         handleDeleteClick={this.handleDeleteClick}

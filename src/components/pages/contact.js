@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class About extends Component {
     render() {
         return (
-            <div className="contact-me-content">
+            <div className="contact-me-content spacer75">
                 <div className="left-column">
                     <div className="contact-wrapper">
                         <h1>Get In Touch</h1>

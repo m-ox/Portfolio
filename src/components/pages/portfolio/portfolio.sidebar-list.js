@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { FaTrashAlt, FaEdit } from 'react-icons/fa'
 
 const PortfolioSidebarList = (props) => {
+
+    console.log(props.data)
 
     const portfolioList = props.data.map(portfolioItem => {
         return (

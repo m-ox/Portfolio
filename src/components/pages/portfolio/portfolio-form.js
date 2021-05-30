@@ -117,6 +117,8 @@ export default class PortfolioForm extends Component {
 
     buildForm() {
         let formData = new FormData()
+        console.log('form data pure', formData)
+        console.log('portfolio items', this.state)
 
         formData.append("portfolio_item[name]", this.state.name) 
         formData.append("portfolio_item[description]", this.state.description)
@@ -134,6 +136,9 @@ export default class PortfolioForm extends Component {
             formData.append("portfolio_item[banner_image]", this.state.banner_image)
         }
 
+        console.log('appended form data', formData)
+        console.log('portfolio items after appended form', this.state)
+
         return formData
     }
 
@@ -144,7 +149,6 @@ export default class PortfolioForm extends Component {
     }
 
     handleSubmit(event) {
-        console.log(event)
         axios({
           method: this.state.apiAction,
           url: this.state.apiUrl,
@@ -168,7 +172,7 @@ export default class PortfolioForm extends Component {
               banner_image: "",
               logo: "",
               editMode: false,
-              apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
+              apiUrl: "https://mox.devcamp.space/portfolio/portfolio_items",
               apiAction: "post"
             });
     
