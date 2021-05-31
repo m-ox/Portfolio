@@ -18,15 +18,22 @@ export default class PortfolioContainer extends Component {
         this.getPortfolioItems = this.getPortfolioItems.bind(this)
     }
 
-    getPortfolioItems() {
+    getPortfolioItems(filter = null) {
         Axios
-          .get("https://mox.devcamp.space/portfolio/portfolio_items") // please do not actually keep this, our endpoint sucked
+          .get("https://mox.devcamp.space/portfolio/portfolio_items")
+
           .then( response => {
-            // handle success
-            console.log("Response success!", response);
-            this.setState({
-                data: response.data.portfolio_items
-            })
+            if (filter) {
+                this.setState({
+                    data: response.data.portfolio_items.filter(item => {
+                        return item.category === filter;
+                    })
+                })
+            } else {
+                this.setState({
+                    data: response.data.portfolio_items
+                })
+            }
           })
           .catch(error => {
             // handle error
@@ -46,12 +53,12 @@ export default class PortfolioContainer extends Component {
     }
 
     handleFilter(filter) {
-        this.setState({
-            data: this.state.data.filter(item => {
-                return item.category === filter;
-            })
-        })
-    }
+        if (filter === "clear") {
+            this.getPortfolioItems()
+        } else {
+            this.getPortfolioItems(filter)
+    }}
+
 
     componentDidMount() {
         this.getPortfolioItems()
@@ -66,17 +73,18 @@ export default class PortfolioContainer extends Component {
                 </div>
             )    
         }
-
-        // this.getPortfolioItems()
         
         return (
-                <div className="portfolio-items-wrapper">
+                <div className="homepage-wrapper">
+                    <div className="filter-links">
+                        <button className="btn" onClick={ () => this.handleFilter('python')}>python</button>
+                        <button className="btn" onClick={ () => this.handleFilter('js')}>js</button>
+                        <button className="btn" onClick={ () => this.handleFilter('clear')}>all</button>
+                    </div>
 
-                    <button className="btn" onClick={ () => this.handleFilter('python')}>python</button>
-                    <button className="btn" onClick={ () => this.handleFilter('js')}>js</button>
-                    <button className="btn" onClick={ () => this.handleFilter('css')}>css</button>
-                    
-                    {this.portfolioItems()}
+                    <div className="portfolio-items-wrapper">
+                        {this.portfolioItems()}
+                    </div>
                 </div>
         )
     }

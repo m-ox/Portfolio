@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
 
+let css = 40
+let js = 30
+let python = 30
+
+let summary =
+    "Montanan web developer, born and raised in the mountains.\n\n\
+    I first became interested in coding as a kid when I wanted to make my own video games. I started with learning RPG Maker logic and later in high school I became interested in CSS/JS when I wanted to style my blogs better than my friends.\n\n\
+    I spent a few years after graduating high school to really figure out what I wanted to do with my life in Montana. I like painting and I like the mountains. But... career prospects didn't look good. I decided to leave and moved to North Carolina. I made some great friends in the Tech Triangle area who gave me a space to talk about IT and become excited about coding. It was just the injection of passion I needed.\n\n\
+    During the COVID pandemic, I wanted to make the most out of a lot of down time, and decided to enroll full-time in Bottega University for fullstack development. The curriculum helped fill in a lot of gaps from my informal studies, and now I have a sturdy foundation on a number of technologies. I have found a lot of enjoyment writing Python (it's so clean!) and learning advanced CSS techniques on the side. So far I'd say in this very moment with another month to go into the curriculum, I'm most comfortable writing Python but I have the most fun with React JS."
+
 export default class About extends Component {
     render() {
         return (
@@ -14,25 +24,24 @@ export default class About extends Component {
                     <h1 className="about-title">Maudlin Oxalis</h1>
 
                     <div className="boasts">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis ligula in tincidunt bibendum. Aenean odio neque, dignissim non turpis quis, ultrices vestibulum nunc. Curabitur eget nisl nisi. Pellentesque et consequat magna. Integer non vestibulum tortor. Donec finibus urna sed tristique ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam congue justo sem, et hendrerit dolor elementum a. Vivamus posuere maximus eros ut tempus. Nullam finibus lorem ut leo ullamcorper, non lobortis ipsum vulputate. Aenean rhoncus ac dolor vitae luctus. Donec eu urna laoreet, imperdiet quam eu, euismod massa. Donec elit arcu, dapibus et pellentesque eget, mattis sed metus. Donec ac ornare diam.</p>
-                        <p>Pellentesque in urna urna. Morbi fringilla sapien ut efficitur volutpat. Vivamus rhoncus nibh quis tortor varius, et eleifend ex sagittis. Proin consequat, diam quis feugiat consequat, ipsum nisi tincidunt dui, eget ullamcorper turpis sapien quis erat. Nulla vulputate malesuada nisi vitae tristique. Proin fermentum sollicitudin velit imperdiet vehicula. Nullam accumsan sapien eu ullamcorper cursus. Nam nec lectus ut ante facilisis dictum. Pellentesque auctor volutpat eleifend. Cras sollicitudin eleifend felis. Vestibulum et maximus erat.</p>
-                    </div>
+                        <p>{summary}</p>
+                         </div>
 
                     <div className="skills-boast">
                         <div className="skill-wrapper">
                             <p>CSS</p>
                             <div className="skill-bar">
-                                <div className="skills css">40%</div>
+                                <div className="skills css">{css}%</div>
                             </div>
 
                             <p>Python</p>
                             <div className="skill-bar">
-                                <div className="skills py">30%</div>
+                                <div className="skills py">{python}%</div>
                             </div>
 
                             <p>Javscript</p>
                             <div className="skill-bar">
-                                <div className="skills js">30%</div>
+                                <div className="skills js">{js}%</div>
                             </div>
 
                         </div>
