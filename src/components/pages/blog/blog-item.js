@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import striptags from "striptags"
 import Truncate from "react-truncate"
-import ReactHtmlParser from "react-html-parser"
-import { FaRegHandPointRight } from 'react-icons/fa'
+import { FaRegHandPointRight, FaTrash } from 'react-icons/fa'
 
 const BlogItem = props => {
     const {
@@ -16,11 +15,17 @@ const BlogItem = props => {
 
     return (
         <div>
-            <Link to={`/b/${id}`}>
                 <h1>
-                    {title}
+                    <Link to={`/b/${id}`}>
+                        {title}
+                    </Link>
+
+                    <a onClick={() => props.handleDeleteClick(props.blogItem) }>
+                        <FaTrash className="blog-delete" />
+                    </a>
                 </h1>
-            </Link>
+
+
             <div>
                 <Truncate lines={5} ellipsis={
                     <span>

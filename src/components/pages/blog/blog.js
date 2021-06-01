@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { FaStar, FaPlusCircle } from 'react-icons/fa'
+import { FaStar, FaPlusCircle, FaTrash } from 'react-icons/fa'
 
 import BlogItem from './blog-item'
 import BlogModal from '../../modals/blog-modal'
@@ -23,7 +23,29 @@ class Blog extends Component {
         this.handleNewBlogClick = this.handleNewBlogClick.bind(this)
         this.handleModalClose = this.handleModalClose.bind(this)
         this.handleSuccessfulNewBlogPost = this.handleSuccessfulNewBlogPost.bind(this)
+        this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
+
+    handleDeleteClick(blog) {
+      console.log('deletey')
+        axios
+          .delete(
+            `https://api.devcamp.space/portfolio/portfolio_blogs/${blog.id}`,
+            { withCredentials: true }
+          )
+          .then(response => {
+            this.setState({
+              blogItems: this.state.blogItems.filter(blogItem => {
+                return blog.id !== blogItem.id;
+              })
+            });
+    
+            return response.data;
+          })
+          .catch(error => {
+            console.log("delete blog error", error);
+          });
+      }
 
     handleSuccessfulNewBlogPost(blog) {
         this.setState({
@@ -85,8 +107,16 @@ class Blog extends Component {
 
     render() {
         const blogRecords = this.state.blogItems.map(blogItem => {
-            return <BlogItem key={blogItem.id} blogItem={blogItem} />
-        })
+            if (this.props.loggedInStatus === "LOGGED_IN") {
+              return (
+                <div key={blogItem.id} className="admin-blog-wrapper">
+                  <BlogItem blogItem={blogItem} handleDeleteClick={this.handleDeleteClick}/>
+                </div>
+              );
+            } else {
+              return <BlogItem key={blogItem.id} blogItem={blogItem} />;
+            }
+          });
         
         return (
             <div className="blog-container spacer75">

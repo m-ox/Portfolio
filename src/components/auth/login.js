@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios"
+import { FaEnvelope, FaLock } from 'react-icons/fa'
 
 export default class Login extends Component {
     constructor(props) {
@@ -62,34 +63,40 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="login-form">
+            <div className="login-form spacer75">
 
-                <h1> WELCOME </h1>
+                <h1 style={{textAlign: 'center'}} > WELCOME </h1>
 
                 <div>{this.state.errorText}</div>
 
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email goes here"
-                        value={this.state.email}
-                        onChange={this.handleChange}
+                <form onSubmit={this.handleSubmit} className="auth-form-wrapper">
+                    <div className="form-group">
+                        <FaEnvelope />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email address"
+                            value={this.state.email}
+                            onChange={this.handleChange}
                         />
+                    </div>
 
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password goes here"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
+                    <div className="form-group">
+                        <FaLock />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                <div>
-                    <button>
-                        Login
-                    </button>
-                </div>
+                    <div className="btn-wrapper">
+                        <button>
+                            Login
+                        </button>
+                    </div>
 
                 </form>
 
