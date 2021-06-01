@@ -1,7 +1,7 @@
 html {
     padding: 0;
     margin: 0;
-    background: $warning;
+    background: rgb(255, 241, 244);
     color: $dark-accent;
     background: linear-gradient(249deg, #f5d5ee, #d7f6fc);
     background-size: 400% 400%;
@@ -43,6 +43,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .spacer75 {
     padding-top: 75px;
+}
+
+.spacer100 {
+    padding-top: 100px;
 }
 
 ::-webkit-scrollbar {
