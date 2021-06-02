@@ -71,6 +71,7 @@ export default class BlogDetail extends Component {
           if (this.state.editMode) {
             return (
               <BlogForm
+                className="spacer75"
                 editMode={this.state.editMode}
                 blog={this.state.blogItem}
                 handleFeaturedImageDelete={this.handleFeaturedImageDelete}
@@ -79,7 +80,7 @@ export default class BlogDetail extends Component {
             );
           } else {
             return (
-              <div className="content-container">
+              <div className="content-container spacer75">
                 <h1 onClick={this.handleEditClick}>{title}</h1>
 
                 <FeaturedImage img={featured_image_url} />
