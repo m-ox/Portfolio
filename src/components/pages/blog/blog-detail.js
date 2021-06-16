@@ -71,7 +71,7 @@ export default class BlogDetail extends Component {
           if (this.state.editMode) {
             return (
               <BlogForm
-                className="spacer75"
+                className="spacer100"
                 editMode={this.state.editMode}
                 blog={this.state.blogItem}
                 handleFeaturedImageDelete={this.handleFeaturedImageDelete}

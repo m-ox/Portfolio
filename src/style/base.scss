@@ -38,16 +38,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .spacer10 {
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 10px !important;
+    padding-left: 10px !important;
 }
 
 .spacer75 {
-    padding-top: 75px;
+    padding-top: 75px !important; 
 }
 
 .spacer100 {
-    padding-top: 100px;
+    padding-top: 100px !important;
 }
 
 ::-webkit-scrollbar {

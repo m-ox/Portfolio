@@ -140,7 +140,7 @@ export default class BlogForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="blog-form-wrapper">
+            <form onSubmit={this.handleSubmit} className={`${this.props.className} blog-form-wrapper`}>
                 <div className="blog-form-columns">
                   <input 
                       className="blog-input"
