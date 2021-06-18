@@ -114,7 +114,7 @@ class Blog extends Component {
                 </div>
               );
             } else {
-              return <BlogItem key={blogItem.id} blogItem={blogItem} />;
+              return <BlogItem key={blogItem.id} blogItem={blogItem} loggedInStatus={this.state.loggedInStatus} />;
             }
           });
         

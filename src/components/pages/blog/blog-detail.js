@@ -82,7 +82,7 @@ export default class BlogDetail extends Component {
             return (
               <div className="content-container spacer75">
                 <h1 onClick={this.handleEditClick}>{title}</h1>
-
+                
                 <FeaturedImage img={featured_image_url} />
 
                 <div className="content">{ReactHtmlParser(content)}</div>

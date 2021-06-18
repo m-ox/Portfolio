@@ -9,6 +9,8 @@ import { AiOutlineMenu } from 'react-icons/ai'
 class NavigationComponent extends Component {
     constructor(props) {
         super(props)
+
+        this.handleSignOut = this.handleSignOut.bind(this)
     }
 
     dynamicLink(route, linkText) {
@@ -19,8 +21,6 @@ class NavigationComponent extends Component {
                 </NavLink>
             </div>
         )
-
-        this.handleSignOut = this.handleSignOut.bind(this)
     }
 
     handleSignOut() {

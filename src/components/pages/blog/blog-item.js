@@ -10,8 +10,11 @@ const BlogItem = props => {
         blog_status,
         content,
         title,
-        featured_image_url
+        featured_image_url,
+        loggedInStatus
     }    = props.blogItem;
+
+    console.log(loggedInStatus)
 
     return (
         <div>
@@ -20,9 +23,10 @@ const BlogItem = props => {
                         {title}
                     </Link>
 
+                    {loggedInStatus === "LOGGED_IN" ?
                     <a onClick={() => props.handleDeleteClick(props.blogItem) }>
                         <FaTrash className="blog-delete" />
-                    </a>
+                    </a> : null}
                 </h1>
 
 
