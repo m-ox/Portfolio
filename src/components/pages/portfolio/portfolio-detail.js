@@ -94,7 +94,7 @@ export default class PortfolioDetail extends Component {
         <div className="right-column">
         
             <div className="visiting">
-                <a href={this.state.url}>Visit this {this.state.category} project!</a>
+                <a href={this.state.url}>Visit this <span className='category'>{this.state.category}</span> project!</a>
             </div>
 
             <div className="details">
