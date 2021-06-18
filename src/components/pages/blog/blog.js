@@ -110,11 +110,19 @@ class Blog extends Component {
             if (this.props.loggedInStatus === "LOGGED_IN") {
               return (
                 <div key={blogItem.id} className="admin-blog-wrapper">
-                  <BlogItem blogItem={blogItem} handleDeleteClick={this.handleDeleteClick}/>
+                  <BlogItem
+                    blogItem={blogItem}
+                    handleDeleteClick={this.handleDeleteClick}
+                    loggedInStatus={this.props.loggedInStatus}
+                    />
                 </div>
               );
             } else {
-              return <BlogItem key={blogItem.id} blogItem={blogItem} loggedInStatus={this.state.loggedInStatus} />;
+              return <BlogItem
+                    key={blogItem.id}
+                    blogItem={blogItem}
+                    loggedInStatus={this.props.loggedInStatus}
+                  />;
             }
           });
         
